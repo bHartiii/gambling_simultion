@@ -11,19 +11,26 @@ public class GamblingSimulation{
 		return result;
 	}
 	public static void resigning(int bet,int totalStake){
-		while(totalStake>50){
+		while(true){
 			int result=betResult();
 			switch(result){
-                        	case 1:
-					totalStake=totalStake-1;
+                        	case 0:
+					totalStake=totalStake-bet;
                                 	break;
-                        	case 2:
-					totalStake=totalStake+2;
+                        	case 1:
+					totalStake=totalStake+bet;
                                 	break;
                         	default:
                                 	break;
                 	}
-
+			if(totalStake==150){
+				System.out.println("Win");
+				break;
+			}
+			else if(totalStake==50){
+				System.out.println("loss");
+				break;
+			}
 		}
 		System.out.println(totalStake);
 	}
