@@ -3,20 +3,28 @@ public class GamblingSimulation{
 	public static void main(String[] args){
 		int totalStake=100;
 		int bet=1;
-		betResult();
+		resigning(bet,totalStake);
 	}
-	public static void betResult(){
+	public static int betResult(){
 		Random random = new Random();
 		int result=random.nextInt(2);
-		switch(result){
-			case 1:
-				System.out.println("win");
-				break;
-			case 2:
-				System.out.println("loose");
-				break;
-			default:
-				break;
+		return result;
+	}
+	public static void resigning(int bet,int totalStake){
+		while(totalStake>50){
+			int result=betResult();
+			switch(result){
+                        	case 1:
+					totalStake=totalStake-1;
+                                	break;
+                        	case 2:
+					totalStake=totalStake+2;
+                                	break;
+                        	default:
+                                	break;
+                	}
+
 		}
+		System.out.println(totalStake);
 	}
 }
